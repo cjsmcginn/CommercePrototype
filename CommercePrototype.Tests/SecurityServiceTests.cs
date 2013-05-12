@@ -4,12 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CommercePrototype.Core;
 using CommercePrototype.Security;
 
-namespace CommercePrototype.Tests.Behaviors
+namespace CommercePrototype.Tests
 {
     [TestClass]
-    public class RegistrationTests
+    public class SecurityServiceTests
     {
-
+        public SecurityServiceTests()
+        {
+            DataManager.CurrentSession.Advanced.DocumentStore.Conventions.DefaultQueryingConsistency = Raven.Client.Document.ConsistencyOptions.QueryYourWrites;
+        }
         #region Utility Methods
         public Account CreateAccount()
         {
@@ -46,7 +49,7 @@ namespace CommercePrototype.Tests.Behaviors
             var securityService = new SecurityService();
             var target = securityService.CreateGuestAccount();
             DataManager.SaveChanges();
-            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+   
             var actual = securityService.GetAuthenticatedAccount(target.Username, target.Password);
             Assert.IsTrue(actual.Username == target.Username);
             Assert.IsTrue(actual.Roles.Single() == Role.Guests);
@@ -59,6 +62,7 @@ namespace CommercePrototype.Tests.Behaviors
             var securityService = new SecurityService();
             securityService.DeleteAccount(target);
             DataManager.SaveChanges();
+        
             var actual = securityService.GetAuthenticatedAccount(target.Username, target.Password);
             Assert.IsNull(actual);
         }
@@ -69,6 +73,7 @@ namespace CommercePrototype.Tests.Behaviors
             var target = CreateAccount();
             var securityService = new SecurityService();
             DataManager.SaveChanges();
+    
             var actual = securityService.GetAccountByEmail(target.Email);
             Assert.IsInstanceOfType(actual, typeof(Account));
         }
@@ -79,6 +84,7 @@ namespace CommercePrototype.Tests.Behaviors
             var target = CreateAccount();
             var securityService = new SecurityService();
             DataManager.SaveChanges();
+     
             var actual = securityService.GetAccountByUsername(target.Username);
             Assert.IsInstanceOfType(actual, typeof(Account));
         }
