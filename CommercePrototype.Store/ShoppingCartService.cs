@@ -33,23 +33,7 @@ namespace CommercePrototype.Store
         }
         public void AddShoppingCartLineItem(ShoppingCart cart, Product product, string productVariantName)
         {
-            var productVariant = product.ProductVariants.Single(x=>x.Name == productVariantName);
-            var existing = cart.LineItems.SingleOrDefault(x => x.ProductVariantName == productVariant.Name);
-            if (existing != null)
-            {
-                existing.Quantity++;
-                return;
-            }
-            
-            var lineItem = new ShoppingCart.LineItem
-            {
-                Price = productVariant.Price,
-                ProductId = product.Id,
-                ProductName = product.Name,
-                ProductVariantName = productVariant.Name,
-                Quantity=1
-            };
-            cart.LineItems.Add(lineItem);
+            cart.AddShoppingCartLineItem(product, productVariantName);
         }
         public void RemoveShoppingCartLineItem(ShoppingCart cart,ShoppingCart.LineItem item)
         {
