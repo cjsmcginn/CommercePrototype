@@ -8,9 +8,14 @@ using System.Threading.Tasks;
 using FluentValidation;
 namespace CommercePrototype.Store
 {
+    /// <summary>
+    /// Encapsulates data operations, callers should use these methods when performing operations on a ShoppingCart   
+    /// operations may require cleanup tasks etc.. that would be missed if persistance was called directly
+    /// </summary>
     public class ShoppingCartService
     {
         const string SHOPPING_CART_BY_ACCOUNT_INDEX = "ShoppingCart/ByAccount";
+       
         public ShoppingCart GetShoppingCart(Account account)
         {
             ShoppingCart result = null;
@@ -26,12 +31,45 @@ namespace CommercePrototype.Store
             }
             return result;
         }
-        //TODO:Possibly move save changes into methods in order to assure validation
+        public void AddShoppingCartLineItem(ShoppingCart cart, Product product, string productVariantName)
+        {
+            var productVariant = product.ProductVariants.Single(x=>x.Name == productVariantName);
+            var existing = cart.LineItems.SingleOrDefault(x => x.ProductVariantName == productVariant.Name);
+            if (existing != null)
+            {
+                existing.Quantity++;
+                return;
+            }
+            
+            var lineItem = new ShoppingCart.LineItem
+            {
+                Price = productVariant.Price,
+                ProductId = product.Id,
+                ProductName = product.Name,
+                ProductVariantName = productVariant.Name,
+                Quantity=1
+            };
+            cart.LineItems.Add(lineItem);
+        }
+        public void RemoveShoppingCartLineItem(ShoppingCart cart,ShoppingCart.LineItem item)
+        {
+            item.Quantity--;
+            if (item.Quantity == 0)
+                cart.LineItems.Remove(item);
+        }
+        /// <summary>
+        /// We set the cart to a new cart because removing all items will affect tax rates shipping etc...
+        /// </summary>
+        /// <param name="cart"></param>
+        public void ClearShoppingCartLineItems(ShoppingCart cart)
+        {
+            cart.LineItems.Clear();
+            //reset create date this is essentially a new cart
+            cart.CreatedOnUtc = System.DateTime.Now;
+        }
         public void SaveShoppingCart(ShoppingCart shoppingCart)
         {
-            var validator = new ShoppingCartValidator();
-            validator.ValidateAndThrow(shoppingCart);
-
+            //var validator = new ShoppingCartValidator();  
             DataManager.CurrentSession.Store(shoppingCart);
         }
     }

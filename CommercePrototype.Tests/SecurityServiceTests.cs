@@ -16,8 +16,7 @@ namespace CommercePrototype.Tests
         #region Utility Methods
         public Account CreateAccount()
         {
-            var target = TestHelper.CreateTestAccount();
-            target.AddRole(Role.Guests);
+            var target = TestHelper.GetTestAccount();          
             var securityService = new SecurityService();
             securityService.SaveAccount(target);
             DataManager.SaveChanges();

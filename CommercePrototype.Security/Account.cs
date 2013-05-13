@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CommercePrototype.Security
 {
+    [Validator(typeof(AccountValidator))]
     public class Account
     {
         public string Id { get; set; }
@@ -23,14 +25,14 @@ namespace CommercePrototype.Security
             set { _Roles = value; }
         }
 
-        public void AddRole(Role role)
-        {
-            if (Roles.Contains(Role.Guests) && role != Role.Guests)
-                Roles.Remove(Role.Guests);
-            if (!Roles.Contains(role))
-                Roles.Add(role);
+        //public void AddRole(Role role)
+        //{
+        //    if (Roles.Contains(Role.Guests) && role != Role.Guests)
+        //        Roles.Remove(Role.Guests);
+        //    if (!Roles.Contains(role))
+        //        Roles.Add(role);
 
-        }
+        //}
     }
 
     public class AccountValidator:AbstractValidator<Account>

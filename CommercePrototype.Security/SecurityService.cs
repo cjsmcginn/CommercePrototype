@@ -30,7 +30,6 @@ namespace CommercePrototype.Security
         public void SaveAccount(Account account)
         {
             var validator = new AccountValidator();
-            validator.ValidateAndThrow(account);
             DataManager.CurrentSession.Store(account);
         }
         public Account GetAccountByUsername(string username)
