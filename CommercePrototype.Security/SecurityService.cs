@@ -54,7 +54,7 @@ namespace CommercePrototype.Security
         public void DeleteAccount(Account account)
         {
             DataManager.CurrentSession.Delete<Account>(account);
-        }        
+        }
         public Account CreateGuestAccount()
         {
             var result = new Account
@@ -63,6 +63,21 @@ namespace CommercePrototype.Security
                 Username = String.Format("Guest-{0}", Guid.NewGuid()),
                 Password = GetRandomString(12),
                 Roles = new List<Role> { Role.Guests }
+            };
+            SaveAccount(result);
+            return result;
+        }
+        public Account CreateAccountByEmail(string email)
+        {
+            Account result = null;
+            result = new Account
+            {
+                Active = true,
+                CreatedOnUtc = System.DateTime.UtcNow,
+                Email = email,
+                Username = email,
+                Password = GetRandomString(9),
+                Roles = new List<Role> { Role.Registered }
             };
             SaveAccount(result);
             return result;

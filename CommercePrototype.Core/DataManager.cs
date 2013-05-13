@@ -10,14 +10,16 @@ namespace CommercePrototype.Core
 {
     public class DataManager
     {
-        //static DocumentStore _documentStore;
+  
         static IDocumentSession _documentSession;
-
+    
     
         static void Initialize()
         {
             var _documentStore =  new DocumentStore{ Url = "http://localhost:8892", DefaultDatabase = "Commerce" };
+            _documentStore.RegisterListener(new ValidationStoreListener());
             _documentStore.Initialize();
+          
             _documentSession = _documentStore.OpenSession();
         }
 

@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="SecurityServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCartServiceTests.cs" />
     <Compile Include="TestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +75,10 @@
     <ProjectReference Include="..\CommercePrototype.Security\CommercePrototype.Security.csproj">
       <Project>{cb194d1f-9c2e-4640-b1be-e88b89e3263e}</Project>
       <Name>CommercePrototype.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommercePrototype.Store\CommercePrototype.Store.csproj">
+      <Project>{43488c15-0f49-4090-aa3f-4784955f5a46}</Project>
+      <Name>CommercePrototype.Store</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -88,5 +88,16 @@ namespace CommercePrototype.Tests
             var actual = securityService.GetAccountByUsername(target.Username);
             Assert.IsInstanceOfType(actual, typeof(Account));
         }
+        [TestMethod]
+        public void CreateAccountByEmailTest()
+        {
+            var email = TestHelper.GetRandomEmail();
+            var securityService = new SecurityService();
+            securityService.CreateAccountByEmail(email);
+            DataManager.SaveChanges();
+            var actual = securityService.GetAccountByEmail(email);
+            Assert.IsTrue(actual.Roles.Single() == Role.Registered);
+        }
+
     }
 }

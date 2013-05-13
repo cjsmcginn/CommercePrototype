@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{669EBB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommercePrototype.Tests", "CommercePrototype.Tests\CommercePrototype.Tests.csproj", "{CFE30389-5B8C-496F-800C-27CC82A7F077}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommercePrototype.Store", "CommercePrototype.Store\CommercePrototype.Store.csproj", "{43488C15-0F49-4090-AA3F-4784955F5A46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{CFE30389-5B8C-496F-800C-27CC82A7F077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFE30389-5B8C-496F-800C-27CC82A7F077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFE30389-5B8C-496F-800C-27CC82A7F077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43488C15-0F49-4090-AA3F-4784955F5A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43488C15-0F49-4090-AA3F-4784955F5A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43488C15-0F49-4090-AA3F-4784955F5A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43488C15-0F49-4090-AA3F-4784955F5A46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

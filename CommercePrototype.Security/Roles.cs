@@ -8,7 +8,9 @@ namespace CommercePrototype.Security
 {
     public enum Role
     {       
+        Affiliates,
         Administrators,
+        CustomerService,
         Guests,
         Registered,
         System
