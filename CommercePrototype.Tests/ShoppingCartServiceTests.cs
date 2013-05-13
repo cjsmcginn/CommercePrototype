@@ -30,7 +30,6 @@ namespace CommercePrototype.Tests
             Assert.IsTrue(actual.Account == account.Id, "ShoppingCart contains invalid account");
             
         }
-
         [TestMethod]
         public void SaveShoppingCartTest()
         {
@@ -43,7 +42,6 @@ namespace CommercePrototype.Tests
             var actual = shoppingCartService.GetShoppingCart(account);
             Assert.IsTrue(actual.Account == account.Id, "ShoppingCart contains invalid account");
         }
-
         [TestMethod]
         public void AddShoppingCartLineItemTest()
         {

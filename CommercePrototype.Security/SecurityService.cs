@@ -28,26 +28,33 @@ namespace CommercePrototype.Security
             return builder.ToString();
         }
         public void SaveAccount(Account account)
-        {
-            var validator = new AccountValidator();
+        {            
             DataManager.CurrentSession.Store(account);
         }
         public Account GetAccountByUsername(string username)
         {
             Account result = null;
-            result = DataManager.CurrentSession.Advanced.LuceneQuery<Account>(ACCOUNT_LOOKUP_INDEX_NAME).SingleOrDefault(x => x.Username == username);
+            var clause = String.Format("Username:{0}", username);
+            result = DataManager.CurrentSession.Advanced.LuceneQuery<Account>(ACCOUNT_LOOKUP_INDEX_NAME)
+                .Where(clause)
+                .SingleOrDefault();
             return result;
         }
         public Account GetAuthenticatedAccount(string username, string password)
         {
             Account result = null;
-            result = DataManager.CurrentSession.Advanced.LuceneQuery<Account>(ACCOUNT_LOOKUP_INDEX_NAME).SingleOrDefault(x => x.Username == username && x.Password == password);
+            var clause = String.Format("Username:{0} Password:{1}", username, password);
+            result = DataManager.CurrentSession.Advanced.LuceneQuery<Account>(ACCOUNT_LOOKUP_INDEX_NAME)
+                .Where(clause)
+                .SingleOrDefault();
             return result;
         }
         public Account GetAccountByEmail(string email)
         {
             Account result = null;
-            result = DataManager.CurrentSession.Advanced.LuceneQuery<Account>(ACCOUNT_LOOKUP_INDEX_NAME).SingleOrDefault(x => x.Email == email);
+            var clause = String.Format("Email:{0}",email);
+            result = DataManager.CurrentSession.Advanced.LuceneQuery<Account>(ACCOUNT_LOOKUP_INDEX_NAME)
+                .Where(clause).SingleOrDefault();
             return result;
         }
         public void DeleteAccount(Account account)

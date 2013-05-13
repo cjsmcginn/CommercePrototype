@@ -94,6 +94,7 @@ namespace CommercePrototype.Tests
             var securityService = new SecurityService();
             securityService.CreateAccountByEmail(email);
             DataManager.SaveChanges();
+            //System.Threading.Thread.Sleep(TimeSpan.FromSeconds(2));
             var actual = securityService.GetAccountByEmail(email);
             Assert.IsTrue(actual.Roles.Single() == Role.Registered);
         }
