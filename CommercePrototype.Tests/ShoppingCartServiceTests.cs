@@ -13,6 +13,12 @@ namespace CommercePrototype.Tests
     public class ShoppingCartServiceTests
     {
 
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            DataManager.RefreshSession();
+        }
+
         #region Utility Methods
      
         #endregion
@@ -90,8 +96,10 @@ namespace CommercePrototype.Tests
             var shoppingCartService = new ShoppingCartService();
             var cart = shoppingCartService.GetShoppingCart(account);
             cart.Account = "";
-            shoppingCartService.SaveShoppingCart(cart);
+            shoppingCartService.SaveShoppingCart(cart);           
             DataManager.SaveChanges();
+            
+           
         }
         #endregion
     }

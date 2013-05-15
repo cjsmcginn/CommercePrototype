@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentValidation;
+using FluentValidation.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CommercePrototype.Store
 {
+    [Validator(typeof(ProductValidator))]
     public class Product
     {
         public string Id { get; set; }        
         public string Name { get; set; }
         List<ProductVariant> _ProductVariants;
-        public DateTime CreatedOnUtc { get; set; }
-        public bool IsBundle { get; set; }       
+        public DateTime CreatedOnUtc { get; set; }          
         public string ShortDescription { get; set; }
         public string FullDescription { get; set; }
         public List<ProductVariant> ProductVariants
@@ -28,14 +30,39 @@ namespace CommercePrototype.Store
             set { _CategoryNames = value; }
         }
        
+        [Validator(typeof(ProductVariantValidator))]
         public class ProductVariant
         {            
             public string Name { get; set; }
             public DateTime CreatedOnUtc { get; set; }
             public bool Active { get; set; }
             public bool RequiresShipping { get; set; }
-            public decimal Price { get; set; }
-            public string AffiliateAccount { get; set; }
+            public decimal Price { get; set; }            
+        }
+        public class ProductVariantValidator : AbstractValidator<ProductVariant>
+        {
+            public ProductVariantValidator()
+            {
+                RuleFor(pv => pv.Name)
+                    .NotEmpty();
+                RuleFor(pv => pv.CreatedOnUtc)
+                    .NotEqual(System.DateTime.MinValue);
+            }
+        }
+
+    }
+
+    public class ProductValidator : AbstractValidator<Product>
+    {
+        public ProductValidator() {
+            RuleFor(product => product.Name)
+                .NotEmpty();
+            RuleFor(product => product.CreatedOnUtc)
+                .NotEqual(System.DateTime.MinValue);
+            RuleFor(p => p.ProductVariants).SetValidator(new Product.ProductVariantValidator());
+           
+         
+
         }
     }
 }

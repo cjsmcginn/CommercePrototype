@@ -65,7 +65,7 @@ namespace CommercePrototype.Tests
             Assert.IsInstanceOfType(actual, typeof(Order), "Could not retreive order by id");
         }      
         [TestMethod]
-        public void SaveOrder()
+        public void SaveOrderTest()
         {
             var account = TestHelper.GetTestAccount();
             var order = CreateAccountOrder(account);

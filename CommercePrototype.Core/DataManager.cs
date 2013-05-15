@@ -12,7 +12,14 @@ namespace CommercePrototype.Core
     {
   
         static IDocumentSession _documentSession;
-    
+
+        /// <summary>
+        /// Mainly for purposes of testing, clearing out static session for each test
+        /// </summary>
+        public static void RefreshSession()
+        {
+            _documentSession = null;
+        }
     
         static void Initialize()
         {
