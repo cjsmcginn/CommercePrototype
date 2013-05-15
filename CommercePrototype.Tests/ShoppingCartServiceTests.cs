@@ -60,7 +60,7 @@ namespace CommercePrototype.Tests
             Assert.IsTrue(cart.LineItems.First().Quantity == 1, "Quantity is not equal to 1");
             Assert.IsTrue(cart.LineItems.First().ProductName == product.Name, "Product name does not match");
             Assert.IsTrue(cart.LineItems.First().ProductVariantName == product.ProductVariants.First().Name, "Product Variant name does not match");
-            Assert.IsTrue(cart.LineItems.First().Price == product.ProductVariants.First().Price, "Product variant price does not match");
+            Assert.IsTrue(cart.LineItems.First().UnitPrice == product.ProductVariants.First().Price, "Product variant price does not match");
         }
         [TestMethod]
         public void RemoveShoppingCartLineItemTest()

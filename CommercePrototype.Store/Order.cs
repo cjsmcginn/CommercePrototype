@@ -26,7 +26,7 @@ namespace CommercePrototype.Store
         public DateTime CreateOnUtc { get; set; }
         public OrderStatus OrderStatus { get; set; }
         List<OrderLineItem> _LineItems;
-
+       
         public List<OrderLineItem> LineItems
         {
             get { return _LineItems ?? (_LineItems = new List<OrderLineItem>()); }
@@ -37,7 +37,8 @@ namespace CommercePrototype.Store
         {
             public string Product { get; set; }
             public string ProductVariantName { get; set; }
-            public decimal UnitPrice { get; set; }            
+            public decimal UnitPrice { get; set; }   
+         
         }
     }
 

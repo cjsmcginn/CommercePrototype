@@ -60,6 +60,7 @@
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="ShoppingCartService.cs" />
     <Compile Include="ShoppingCart_ByAccount.cs" />
+    <Compile Include="StoreDiscount.cs" />
     <Compile Include="StoreExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

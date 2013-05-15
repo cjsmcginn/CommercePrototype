@@ -63,12 +63,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Behaviors\CartTotalCalculationTests.cs" />
     <Compile Include="OrderServiceTests.cs" />
     <Compile Include="SecurityServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingCartServiceTests.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="ProductServiceTests.cs" />
+    <Compile Include="DiscountServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -24,7 +24,7 @@ namespace CommercePrototype.Store
 
             var lineItem = new ShoppingCart.LineItem
             {
-                Price = productVariant.Price,
+                UnitPrice = productVariant.Price,
                 ProductId = product.Id,
                 ProductName = product.Name,
                 ProductVariantName = productVariant.Name,
@@ -42,7 +42,7 @@ namespace CommercePrototype.Store
                 {
                     Product = lineItem.ProductName,
                     ProductVariantName = lineItem.ProductVariantName,
-                    UnitPrice = lineItem.Price
+                    UnitPrice = lineItem.UnitPrice
                 }).ToList(),
                 OrderStatus = OrderStatus.NotProcessed
             };

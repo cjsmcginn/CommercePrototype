@@ -75,7 +75,22 @@ namespace CommercePrototype.Tests
             };
             return target;
         }
-        
+        public static StoreDiscount.Discount GetTestDiscount()
+        {
+            var result = new StoreDiscount.Discount
+            {
+                Active = true,
+                Amount = 20m,
+                UsePercentage = true,
+                Code = GetRandomString(5),
+                CreatedOnUtc = System.DateTime.UtcNow,
+                Name = GetRandomString(8),
+                DiscountType = DiscountType.OrderTotal
+            };
+
+            return result;
+
+        }
 
     }
 

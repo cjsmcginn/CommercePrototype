@@ -15,7 +15,13 @@ namespace CommercePrototype.Store
         public string Account { get; set; }
         public DateTime CreatedOnUtc { get; set; }
         List<LineItem> _LineItems;
-
+        public decimal Subtotal
+        {
+            get
+            {
+                return LineItems.Sum(x => x.UnitPrice * x.Quantity);
+            }
+        }
         public List<LineItem> LineItems
         {
             get { return _LineItems ?? (_LineItems = new List<LineItem>()); }
@@ -27,7 +33,7 @@ namespace CommercePrototype.Store
             public string ProductId { get; set; }
             public string ProductName { get; set; }
             public string ProductVariantName { get; set; }
-            public decimal Price { get; set; }
+            public decimal UnitPrice { get; set; }
             public int Quantity { get; set; }
         }
     }
