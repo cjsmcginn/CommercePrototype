@@ -15,7 +15,7 @@
             <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-bind="text: name(), attr: { 'href': '#' + itemId() + '_detail' }"></a>
             </div>
-            <div data-bind="attr: { 'id': itemId() + '_detail', 'data-id': itemId(), 'data-detail':itemId() + '_detail_body' }" class="accordion-body collapse">
+            <div data-bind="attr: { 'id': itemId() + '_detail', 'data-id': itemId(), 'data-detail': itemId() + '_detail_body' }" class="accordion-body collapse">
                 <div class="product-detail" data-bind="attr: { 'id': itemId() + '_detail_body', 'data-id': itemId() }"></div>
             </div>
         </div>
@@ -23,17 +23,13 @@
 </script>
 
 <script type="text/html" id="product-detail-template">
-    <span data-bind="text:name"></span>
-</script>
-
-<div id="product-list" data-bind="template: { name: 'product-list-template' }"></div>
-
-<ul class="nav nav-tabs">
-    <li><a href="#product-tab-content" data-toggle="tab">Product</a></li>
-    <li><a href="#product-variant-tab-content" data-toggle="tab">Product Variants</a></li>
-</ul>
-
-<div class="tab-content">
+    <div class="container-fluid">
+        <ul class="nav nav-tabs">
+            <li><a href="#product-tab-content" data-toggle="tab">Product</a></li>
+            <li><a href="#product-variant-tab-content" data-toggle="tab">Product Variants</a></li>
+        </ul>
+    </div>
+    <div class="tab-content">
     <div class="tab-pane active" id="product-tab-content">
         <form class="form-horizontal">
             <div class="control-group">
@@ -82,3 +78,10 @@
         </div>
     </div>
 </div>
+</script>
+
+<div id="product-list" data-bind="template: { name: 'product-list-template' }"></div>
+
+
+
+
