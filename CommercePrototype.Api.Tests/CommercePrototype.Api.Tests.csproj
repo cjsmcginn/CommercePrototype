@@ -124,6 +124,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommercePrototype.Api\CommercePrototype.Api.csproj">
+      <Project>{091C9D76-9E54-4D6B-87EC-62ECD1BCF5E7}</Project>
+      <Name>CommercePrototype.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

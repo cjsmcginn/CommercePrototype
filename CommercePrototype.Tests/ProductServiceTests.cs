@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CommercePrototype.Store;
 using FluentValidation;
@@ -25,6 +26,13 @@ namespace CommercePrototype.Tests
             var actual = service.GetProductById(target.Id);
             Assert.IsInstanceOfType(actual,typeof(Product));
 
+        }
+        [TestMethod]
+        public void SearchProductsTest()
+        {
+            var service = new ProductService();
+            var actual = service.SearchProducts(0, 15);
+            Assert.IsInstanceOfType(actual, typeof(List<Product>));
         }
       
     }

@@ -25,6 +25,8 @@ namespace CommercePrototype.Core
         {
             var _documentStore =  new DocumentStore{ Url = "http://localhost:8892", DefaultDatabase = "Commerce" };
             _documentStore.RegisterListener(new ValidationStoreListener());
+            //temporary to facillitate testing
+        
             _documentStore.Initialize();
           
             _documentSession = _documentStore.OpenSession();

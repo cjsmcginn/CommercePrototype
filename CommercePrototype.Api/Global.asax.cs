@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommercePrototype.Api.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,7 +18,7 @@ namespace CommercePrototype.Api
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
+            FormatterConfig.RegisterFormatters(GlobalConfiguration.Configuration.Formatters);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

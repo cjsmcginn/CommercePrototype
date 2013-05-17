@@ -20,6 +20,13 @@ namespace CommercePrototype.Admin
             result = DataManager.CurrentSession.Load<Product>(id);
             return result;
         }
+        //TODO:Implement search parameters
+        public List<Product> SearchProducts(int pageIndex, int pageSize)
+        {
+            List<Product> result = null;
+            result = DataManager.CurrentSession.Query<Product>().ToList();
+            return result;
+        }
       
     }
 }
