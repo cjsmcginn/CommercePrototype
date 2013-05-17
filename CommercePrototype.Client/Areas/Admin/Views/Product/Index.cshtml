@@ -16,71 +16,75 @@
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" data-bind="text: name(), attr: { 'href': '#' + itemId() + '_detail' }"></a>
             </div>
             <div data-bind="attr: { 'id': itemId() + '_detail', 'data-id': itemId(), 'data-detail': itemId() + '_detail_body' }" class="accordion-body collapse">
-                <div class="product-detail" data-bind="attr: { 'id': itemId() + '_detail_body', 'data-id': itemId() }"></div>
+                <div class="product-detail" data-bind="attr: { 'id': itemId() + '_detail_body', 'data-id': itemId() }">
+                    <div class="container-fluid">
+                        <ul class="nav nav-tabs">
+                            <li><a data-bind="attr: { 'href': '#product-tab-content' + itemId() }" data-toggle="tab">Product</a></li>
+                            <li><a data-bind="attr: { 'href': '#product-variant-tab-content' + itemId() }" data-toggle="tab">Product Variants</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" data-bind="attr: { 'id': 'product-tab-content' + itemId() }">
+                            <form class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label" for="inputProductName">Name</label>
+                                    <div class="controls">
+                                        <input type="text" data-bind="value: name" id="inputProductName" placeholder="Product Name">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">Password</label>
+                                    <div class="controls">
+                                        <input type="password" id="inputPassword" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            <input type="checkbox">
+                                            Remember me
+                                        </label>
+                                        <button type="submit" class="btn">Sign in</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                            <div class="tab-pane" data-bind="attr: { 'id': 'product-variant-tab-content' + itemId() }">
+                            <div class="accordion" id="accordion2" data-bind="foreach:productVariants">
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Collapsible Group Item #1
+                                        </a>
+                                    </div>
+                                    <div id="collapseOne" class="accordion-body collapse in">
+                                        <div class="accordion-inner">
+                                            <form class="form-horizontal">
+                                                <div class="control-group">
+                                                    <label class="control-label" for="inputProductVariantName">Name</label>
+                                                    <div class="controls">
+                                                        <input type="text" id="inputProductVariantName" placeholder="Product Variant Name">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </script>
 
 <script type="text/html" id="product-detail-template">
-    <div class="container-fluid">
-        <ul class="nav nav-tabs">
-            <li><a href="#product-tab-content" data-toggle="tab">Product</a></li>
-            <li><a href="#product-variant-tab-content" data-toggle="tab">Product Variants</a></li>
-        </ul>
-    </div>
-    <div class="tab-content">
-    <div class="tab-pane active" id="product-tab-content">
-        <form class="form-horizontal">
-            <div class="control-group">
-                <label class="control-label" for="inputProductName">Name</label>
-                <div class="controls">
-                    <input type="text" id="inputProductName" placeholder="Product Name">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="inputPassword">Password</label>
-                <div class="controls">
-                    <input type="password" id="inputPassword" placeholder="Password">
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <label class="checkbox">
-                        <input type="checkbox">
-                        Remember me
-                    </label>
-                    <button type="submit" class="btn">Sign in</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="tab-pane" id="product-variant-tab-content">
-        <div class="accordion" id="accordion2">
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Collapsible Group Item #1
-                    </a>
-                </div>
-                <div id="collapseOne" class="accordion-body collapse in">
-                    <div class="accordion-inner">
-                        <form class="form-horizontal">
-                            <div class="control-group">
-                                <label class="control-label" for="inputProductVariantName">Name</label>
-                                <div class="controls">
-                                    <input type="text" id="inputProductVariantName" placeholder="Product Variant Name">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  
 </script>
 
 <div id="product-list" data-bind="template: { name: 'product-list-template' }"></div>
+
+
 
 
 

@@ -6,7 +6,8 @@
 var product =
     {
         //view models
-        productVariantViewModel:function(data) {
+        productVariantViewModel: function (data) {
+
             this.name = data.name;
             this.price = data.price;
             this.active = data.active;
@@ -14,22 +15,21 @@ var product =
         },
         productVariantViewModelMapping:
         {
-                create: function(options) {
-                    var r = ko.mapping.fromJS(new product.productVariantViewModel(options.data));
-                    return r;
+            create: function (options) {
+                var r = ko.mapping.fromJS(new product.productVariantViewModel(options.data));//ko.mapping.fromJS(new product.productVariantViewModel(options.data));
+                return r;
             }
         },
-        productModel:function(data)
-        {           
+        productModel: function (data) {
             this.id = data.id;
             this.name = data.name;
             this.itemId = data.id.replace("products/", "");
-            this.productVariants = ko.mapping.fromJS(data.productVariants, product.productVariantViewModelMapping);
+            this.productVariants = data.productVariants;
         },
         viewModelMapping: {
             'products': {
                 create: function (options) {
-                    return new ko.mapping.fromJS(new product.productModel(options.data));
+                    return ko.mapping.fromJS(new product.productModel(options.data));
                 },
                 update: function (options) {
                     var r = ko.mapping.fromJS(new product.productModel(options.data));
@@ -38,21 +38,21 @@ var product =
             }
         },
         //events
-        events:{
-            productListReceived:'productListReceived'
+        events: {
+            productListReceived: 'productListReceived'
         },
         //event handlers
-        onProductListReceived: function (options) {            
+        onProductListReceived: function (options) {
             //product.viewModel.products(options);
-            product.viewModel = ko.mapping.fromJS(options,product.viewModelMapping);
+            product.viewModel = ko.mapping.fromJS(options, product.viewModelMapping);
             ko.applyBindings(product.viewModel, document.getElementById('#products-list'));
             $('#product-list .collapse').on('show', function (item) {
-               product.onProductSelected(item);    
+                //product.onProductSelected(item);    
             });
         },
         onProductSelected: function (options) {
             var itemData = ko.dataFor(document.getElementById($(options.target).data('detail')));
-            ko.renderTemplate('product-detail-template', itemData, {}, document.getElementById($(options.target).data('detail')), 'replaceNode');
+            ko.renderTemplate('product-detail-template', itemData, {}, document.getElementById($(options.target).data('detail')));
 
 
         },
@@ -62,7 +62,7 @@ var product =
                 product.onProductListReceived(data);
             })
             amplify.request('productList', function (data, text, jqXHR) {
-                amplify.publish(product.events.productListReceived,data);
+                amplify.publish(product.events.productListReceived, data);
             });
 
         }
