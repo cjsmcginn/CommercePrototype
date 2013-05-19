@@ -43,7 +43,9 @@ namespace CommercePrototype.Client
                     "~/Scripts/amplify.js",
                     "~/Scripts/knockout-2.2.1.js",
                     "~/Scripts/knockout.mapping-latest.js",
-                    "~/Scripts/knockout.validation.js"
+                    "~/Scripts/knockout.validation.js",
+                    "~/Scripts/knockout.protectedObservable.js",
+                    "~/Scripts/overlay.js"
                 ));
 
            

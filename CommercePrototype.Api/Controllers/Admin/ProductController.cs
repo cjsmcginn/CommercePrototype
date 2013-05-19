@@ -42,6 +42,7 @@ namespace CommercePrototype.Api.Controllers.Admin
         // PUT api/product/5
         public void Put(int id, [FromBody]string value)
         {
+            var x = "Y";
         }
 
         // DELETE api/product/5
