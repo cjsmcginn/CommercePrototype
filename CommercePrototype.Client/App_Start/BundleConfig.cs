@@ -45,6 +45,7 @@ namespace CommercePrototype.Client
                     "~/Scripts/knockout.mapping-latest.js",
                     "~/Scripts/knockout.validation.js",
                     "~/Scripts/knockout.protectedObservable.js",
+                    "~/Scripts/knockout.custom.js",
                     "~/Scripts/overlay.js"
                 ));
 

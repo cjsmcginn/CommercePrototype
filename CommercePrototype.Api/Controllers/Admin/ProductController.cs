@@ -1,6 +1,8 @@
-﻿using CommercePrototype.Admin;
+﻿using AutoMapper;
+using CommercePrototype.Admin;
 using CommercePrototype.Api.Models.Admin;
 using CommercePrototype.Core;
+using CommercePrototype.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +37,15 @@ namespace CommercePrototype.Api.Controllers.Admin
         }
 
         // POST api/product
-        public void Post([FromBody]string value)
+        public void Post(ProductListViewModel.ProductListItemViewModel value)
         {
+            Mapper.CreateMap<ProductListViewModel.ProductListItemViewModel, Product>()
+                .ForMember(dest => dest.Id, p => p.Ignore())
+                .ForMember(dest => dest.CreatedOnUtc, p => p.UseValue(System.DateTime.UtcNow));
+            var product = Mapper.Map<Product>(value);
+            _ProductService.SaveProduct(product);
+            DataManager.SaveChanges();
+          
         }
 
         // PUT api/product/5

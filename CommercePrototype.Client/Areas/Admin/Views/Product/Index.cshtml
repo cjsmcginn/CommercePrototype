@@ -10,6 +10,13 @@
 }
 
 <script type="text/html" id="product-list-template">
+    <div class="row-fluid">
+    <div class="span2 offset10">
+        <div class="span6">
+            <button class="btn btn-primary" data-toggle="button" data-bind="click:addProduct">Add New</button>
+        </div>
+    </div>
+</div>
     <div class="accordion" data-bind="foreach: products">
         <div class="accordion-group" data-bind="attr: { 'id': itemId }">
             <div class="accordion-heading">
