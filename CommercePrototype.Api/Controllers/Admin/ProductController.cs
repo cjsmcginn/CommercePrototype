@@ -40,15 +40,35 @@ namespace CommercePrototype.Api.Controllers.Admin
         }
 
         // POST api/product
-        public void Post(ProductListViewModel.ProductListItemViewModel value)
+        public HttpResponseMessage Post(ProductListViewModel.ProductListItemViewModel value)
         {
-            Mapper.CreateMap<ProductListViewModel.ProductListItemViewModel, Product>()
-                .ForMember(dest => dest.Id, p => p.Ignore())
-                .ForMember(dest => dest.CreatedOnUtc, p => p.UseValue(System.DateTime.UtcNow));
-            var product = Mapper.Map<Product>(value);
-            _ProductService.SaveProduct(product);
-            DataManager.SaveChanges();
-          
+
+            HttpResponseMessage result = null;
+            try
+            {
+                Mapper.CreateMap<ProductListViewModel.ProductListItemViewModel, Product>()
+                    .ForMember(dest => dest.Id, p => p.Ignore())
+                    .ForMember(dest => dest.CreatedOnUtc, p => p.UseValue(System.DateTime.UtcNow));
+                Mapper.CreateMap<Product, ProductListViewModel.ProductListItemViewModel>();
+                Mapper.CreateMap<Product, ProductListViewModel.ProductListItemViewModel.ProductVariantListItemViewModel>();
+                var product = Mapper.Map<Product>(value);
+                _ProductService.SaveProduct(product);
+
+                DataManager.SaveChanges();
+                var model = Mapper.Map<ProductListViewModel.ProductListItemViewModel>(product);
+
+               // result = new HttpResponseMessage { Content = new StringContent(res), StatusCode = HttpStatusCode.OK };
+
+                result = Request.CreateResponse<ProductListViewModel.ProductListItemViewModel>(HttpStatusCode.OK, model);
+            }
+            catch (FluentValidation.ValidationException ve)
+            {
+                var errors = ve.Message;
+                result = new HttpResponseMessage { StatusCode = HttpStatusCode.OK };
+
+
+            }
+            return result;
         }
 
         // PUT api/product/5

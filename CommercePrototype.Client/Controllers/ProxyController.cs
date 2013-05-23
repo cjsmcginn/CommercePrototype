@@ -24,8 +24,25 @@ namespace CommercePrototype.Client.Controllers
         }
 
         // POST api/proxy
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post(ProxyRequest request)
         {
+            HttpResponseMessage result = null;
+            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
+            byte[] arr = encoding.GetBytes(request.Content);
+            HttpWebRequest httpRequest = (HttpWebRequest)HttpWebRequest.Create(request.Uri);
+            httpRequest.Method = "POST";
+            httpRequest.ContentType = "application/json";
+            httpRequest.ContentLength = arr.Length;
+            httpRequest.KeepAlive = true;
+            Stream dataStream = httpRequest.GetRequestStream();
+            dataStream.Write(arr, 0, arr.Length);
+            dataStream.Close();
+            var response = (HttpWebResponse)httpRequest.GetResponse();
+            var buffer = new byte[response.ContentLength];
+            response.GetResponseStream().Read(buffer, 0, buffer.Length);
+            var ms = String.Join("", buffer.Select(x => (char)x).ToArray());
+            result = new HttpResponseMessage { Content = new StringContent(ms), StatusCode = response.StatusCode };
+            return result;
         }
 
         // PUT api/proxy/5
