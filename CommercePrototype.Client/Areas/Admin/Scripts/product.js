@@ -4,7 +4,7 @@
     type: 'GET'
 });
 amplify.request.define('productSave', 'ajax', {
-    url: 'http://localhost:63185/admin/api/product',
+    url: '/api/proxy',
     dataType: 'json',
     type: 'PUT'
 });
@@ -13,6 +13,7 @@ amplify.request.define('createProductSave', 'ajax', {
     dataType: 'json',
     type: 'POST'
 });
+
 var product =
     {
         //view model
@@ -24,7 +25,8 @@ var product =
                     id: options.data.id,
                     active: ko.protectedObservable(options.data.active),
                     itemId: options.data.id.replace('products/', ''),
-                    productVariants: options.data.productVariants    
+                    productVariants: options.data.productVariants,
+                    createdOnUtc:options.data.createdOnUtc
                 }, {
                     'productVariants': {
                         key: function (item) {
@@ -36,8 +38,8 @@ var product =
                                 price: ko.protectedObservable(options.data.price),
                                 requiresShipping: ko.protectedObservable(options.data.requiresShipping),
                                 active: ko.protectedObservable(options.data.active),
-                                id: '_' + Math.random().toString(36).substr(2, 9)
-                                                              
+                                id: '_' + Math.random().toString(36).substr(2, 9),
+                                createdOnUtc:options.data.createdOnUtc                               
                             });
                             result.commitAll= function () {
                                 this.name.commit();
@@ -64,6 +66,10 @@ var product =
                 };
                 result.save= function (item) {
                     amplify.publish(product.events.productSave, item);
+                };
+                result.update = function (item) {
+                    this.active(item.active);
+                    this.name(item.name);
                 };
                 result.commitAll= function () {
                     this.name.commit();
@@ -138,15 +144,19 @@ var product =
         onProductSave: function (options) {
             options.commitAll();
             $('#product-save-modal').modal({ show: true });
-            //TODO: Implement put callback
-            window.setInterval(function () {
-                amplify.publish(product.events.productSaveComplete, options);
-
-            }, 3000);
+            
+            var item = ko.mapping.toJS(options);
+            amplify.request('productSave', { uri: 'http://localhost:63185/admin/api/product', content: JSON.stringify(item) }, function (data,status,jqXHR) {
+                console.log(data);
+                amplify.publish(product.events.productSaveComplete, data);
+            });
         },
         onProductSaveComplete: function (options) {
             $('#product-save-modal').modal('hide');
-            $('#product-list #' + options.itemId() + '_detail').collapse('hide');
+            var index = product.viewModel.products.mappedIndexOf({ itemId: options.id.replace('products/', '') });
+            var existing = product.viewModel.products()[index];            
+            existing.update(options);
+            $('#product-list #' + existing.itemId() + '_detail').collapse('hide');
         },
         onProductEditCancel: function (options) {
             options.resetAll();

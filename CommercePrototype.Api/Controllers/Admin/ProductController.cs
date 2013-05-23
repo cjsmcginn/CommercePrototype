@@ -8,7 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Web.Http;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace CommercePrototype.Api.Controllers.Admin
 {
@@ -49,9 +52,21 @@ namespace CommercePrototype.Api.Controllers.Admin
         }
 
         // PUT api/product/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(ProductListViewModel.ProductListItemViewModel value)
         {
-            var x = "Y";
+            Mapper.CreateMap<ProductListViewModel.ProductListItemViewModel, Product>();
+            Mapper.CreateMap<ProductListViewModel.ProductListItemViewModel.ProductVariantListItemViewModel, Product.ProductVariant>();
+            var item = _ProductService.GetProductById(value.Id);
+            var product = Mapper.Map(value, item);
+            _ProductService.SaveProduct(item);
+            DataManager.SaveChanges();
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            IContentNegotiator negotiator = Configuration.Services.GetContentNegotiator();
+            MediaTypeHeaderValue mediaType;
+            var contentNegotiationResult = negotiator.Negotiate(typeof(ProductListViewModel.ProductListItemViewModel), Request, Configuration.Formatters);  
+            result.Content = new System.Net.Http.ObjectContent<ProductListViewModel.ProductListItemViewModel>(value,contentNegotiationResult.Formatter);
+
+            return result;
         }
 
         // DELETE api/product/5

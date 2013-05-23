@@ -23,6 +23,7 @@ namespace CommercePrototype.Api.Models.Admin
             public string Id { get; set; }
             public string Name { get; set; }
             public bool Active { get; set; }
+            public DateTime CreatedOnUtc { get; set; }
             List<ProductVariantListItemViewModel> _ProductVariants;
 
             public List<ProductVariantListItemViewModel> ProductVariants
@@ -36,6 +37,7 @@ namespace CommercePrototype.Api.Models.Admin
                 public bool Active { get; set; }
                 public bool RequiresShipping { get; set; }
                 public decimal Price { get; set; }
+                public DateTime CreatedOnUtc { get; set; }
             }
 
         }
@@ -49,13 +51,14 @@ namespace CommercePrototype.Api.Models.Admin
                         Active = true,
                         Id = item.Id,
                         Name = item.Name,
-
+                        CreatedOnUtc = item.CreatedOnUtc,
                         ProductVariants = item.ProductVariants.Select(pv => new ProductListItemViewModel.ProductVariantListItemViewModel
                         {
                             Active = pv.Active,
                             Name = pv.Name,
                             Price = pv.Price,
-                            RequiresShipping = pv.RequiresShipping
+                            RequiresShipping = pv.RequiresShipping,
+                            CreatedOnUtc = pv.CreatedOnUtc
                         }).ToList()
 
 
