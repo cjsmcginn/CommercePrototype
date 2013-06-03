@@ -71,6 +71,18 @@ namespace CommercePrototype.Tests
                     }
 
                 },
+                ProductAttributes = new List<Product.ProductAttribute>{
+                    new Product.ProductAttribute{
+                     AttributeName="Product Type",
+                     AttributeType= ProductAttributeType.ProductType,
+                     AttributeValue="Physical"                      
+                    },
+                    new Product.ProductAttribute{
+                     AttributeName="Default Price",
+                     AttributeType= ProductAttributeType.DefaultPrice,
+                     AttributeValue="10.00"                      
+                    }
+                },
                 ShortDescription = GetRandomString(20)
             };
             return target;
@@ -86,6 +98,7 @@ namespace CommercePrototype.Tests
                 CreatedOnUtc = System.DateTime.UtcNow,
                 Name = GetRandomString(8),
                 DiscountType = DiscountType.OrderTotal
+
             };
 
             return result;

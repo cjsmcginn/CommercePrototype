@@ -1,0 +1,10 @@
+.page{
+    width:100%;
+    margin-bottom:50px;
+}
+.image-control-image{text-align:center;padding:5px}
+.image-control-wrap{width:100%;}
+.image-controls{width:130px;margin:auto}
+.img-polaroid.image-primary{
+    border:green 2px solid;
+}

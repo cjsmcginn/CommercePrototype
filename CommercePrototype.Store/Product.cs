@@ -17,6 +17,14 @@ namespace CommercePrototype.Store
         public DateTime CreatedOnUtc { get; set; }          
         public string ShortDescription { get; set; }
         public string FullDescription { get; set; }
+        List<ProductAttribute> _ProductAttributes;
+
+        public List<ProductAttribute> ProductAttributes
+        {
+            get { return _ProductAttributes ?? (_ProductAttributes = new List<ProductAttribute>()); }
+            set { _ProductAttributes = value; }
+        }
+
         public List<ProductVariant> ProductVariants
         {
             get { return _ProductVariants ?? (_ProductVariants = new List<ProductVariant>()); }
@@ -37,7 +45,21 @@ namespace CommercePrototype.Store
             public DateTime CreatedOnUtc { get; set; }
             public bool Active { get; set; }
             public bool RequiresShipping { get; set; }
-            public decimal Price { get; set; }            
+            public decimal Price { get; set; }
+            List<ProductVariantAttribute> _ProductVariantAttributes;
+
+            public List<ProductVariantAttribute> ProductVariantAttributes
+            {
+                get { return _ProductVariantAttributes ?? (new List<ProductVariantAttribute>()); }
+                set { _ProductVariantAttributes = value; }
+            }
+
+            public class ProductVariantAttribute
+            {
+                public ProductVariantAttributeType AttributeType { get; set; }
+                public string AttributeName { get; set; }
+                public string AttributeValue { get; set; }
+            }
         }
         public class ProductVariantValidator : AbstractValidator<ProductVariant>
         {
@@ -49,7 +71,12 @@ namespace CommercePrototype.Store
                     .NotEqual(System.DateTime.MinValue);
             }
         }
-
+        public class ProductAttribute
+        {
+            public ProductAttributeType AttributeType { get; set; }
+            public string AttributeName { get; set; }
+            public string AttributeValue { get; set; }
+        }
     }
 
     public class ProductValidator : AbstractValidator<Product>
@@ -60,6 +87,12 @@ namespace CommercePrototype.Store
             RuleFor(product => product.CreatedOnUtc)
                 .NotEqual(System.DateTime.MinValue);
             RuleFor(p => p.ProductVariants).SetValidator(new Product.ProductVariantValidator());
+            RuleFor(product=>product.ProductAttributes).Must((product,productAttributes)=>{
+                var valid = productAttributes.Count(pa => pa.AttributeType == ProductAttributeType.DefaultPrice) == 1
+                    && productAttributes.Count(pa => pa.AttributeType == ProductAttributeType.ProductType) == 1;
+                return valid;
+                   
+            });
            
          
 
