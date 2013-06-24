@@ -17,8 +17,8 @@ namespace CommercePrototype.Store
         public List<Order> GetOrdersByAccountId(string id)
         {
             List<Order> result = null;
-            var clause = string.Format("Account:{0}", id);
-            result = DataManager.CurrentSession.Advanced.LuceneQuery<Order>(ORDERS_BY_ACCOUNT_INDEX).Where(clause).ToList();
+            //var clause = string.Format("Account:{0}", id);
+            result = DataManager.CurrentSession.Advanced.LuceneQuery<Order>(ORDERS_BY_ACCOUNT_INDEX).WhereEquals(x => x.Account, id).ToList();
             return result;
         }
         public Order GetOrderById(string id)

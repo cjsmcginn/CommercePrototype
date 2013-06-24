@@ -12,6 +12,14 @@ namespace CommercePrototype.Tests
     [TestClass]
     public class OrderServiceTests
     {
+        [ClassInitialize]
+        public static void Initialize(TestContext context)
+        {
+            var testDb = new TestDB();
+            testDb.CreateDatabase();
+            DataManager.CurrentSession = testDb.Store.OpenSession();
+
+        }
         #region UtilityMethods
         Order CreateAccountOrder(Account account)
         {

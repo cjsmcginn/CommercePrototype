@@ -17,17 +17,7 @@ namespace CommercePrototype.Store
         OrderItem
         
     }
-    public class StoreDiscount
-    {
-        //Quetion:Maybe hardcode ID so there is only one instance
-        public string Id { get; set; }
-        List<Discount> _Discounts;
-
-        public List<Discount> Discounts
-        {
-            get { return _Discounts ?? (_Discounts = new List<Discount>()); }
-            set { _Discounts = value; }
-        }
+    
 
         [Validator(typeof(DiscountValidator))]
         public class Discount
@@ -58,13 +48,6 @@ namespace CommercePrototype.Store
 
             }
         }
-        public class StoreDiscountValidator : AbstractValidator<StoreDiscount>
-        {
-            public StoreDiscountValidator()
-            {
-               
-                RuleFor(storeDiscount => storeDiscount.Discounts).SetValidator(new DiscountValidator());
-            }
-        }
+        
     }
-}
+

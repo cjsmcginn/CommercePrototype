@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Emails" xml:space="preserve">
+    <value>Aenean.eget.metus@Sedmalesuadaaugue.com;non.dapibus.rutrum@tinciduntvehicularisus.com;ac.turpis@risusvarius.net;non.cursus@magna.org;aliquet.diam@acmattisornare.net;Aliquam@idsapienCras.net;magna.tellus.faucibus@dolorelitpellentesque.edu;non@eumetus.com;massa.Quisque.porttitor@pede.net;ac.nulla.In@CurabiturmassaVestibulum.com;tincidunt@Sedidrisus.com;neque.In@etpede.edu;congue@Vivamusnonlorem.com;lobortis.risus.In@hymenaeosMauris.edu;elit.Aliquam@scelerisquescelerisque.com;diam@ut.ca;fermentum@Integeraliquamadipiscing.org;lorem@ridiculusmusDonec.org;Nunc@mauris.edu;placerat@Nunc.net;ultricies@eutellusPhasellus.edu;aliquet@duiCraspellentesque.ca;odio@gravidaPraesenteu.org;in@Aliquamornarelibero.edu;volutpat@porttitor.com;vel@necdiamDuis.org;lectus.Nullam@ligulaAeneangravida.com;leo.Cras.vehicula@commodohendreritDonec.ca;imperdiet.erat@velitQuisquevarius.co.uk;Ut.semper@primisin.co.uk;interdum.Sed@milorem.co.uk;tempor.arcu@auctorullamcorper.co.uk;ut.ipsum.ac@dolorNulla.edu;elit.pede.malesuada@erateget.com;nulla@pede.ca;accumsan.convallis.ante@rutrum.net;ut@id.org;vel.turpis.Aliquam@eleifendnondapibus.org;fringilla.euismod.enim@taciti.com;elit.pharetra@ullamcorperDuisat.ca;non@odioAliquamvulputate.edu;ultrices@sedlibero.org;nonummy@arcu.org;sed.est@natoquepenatibus.co.uk;Quisque@adipiscingnon.ca;amet.luctus.vulputate@Nuncullamcorper.co.uk;purus@malesuada.co.uk;mollis@Nulla.net;aliquam.eu@dignissimpharetra.org;penatibus.et.magnis@Namligulaelit.co.uk;orci.Ut.semper@egestas.edu;sodales.Mauris.blandit@eu.co.uk;lacinia.vitae.sodales@euismodindolor.com;Donec.est@Proinnon.co.uk;aliquam@Etiamgravidamolestie.net;sodales.nisi@auctor.edu;dictum.placerat.augue@nonummyipsumnon.ca;elit.elit.fermentum@utpharetrased.edu;adipiscing.fringilla@ligulaconsectetuer.co.uk;commodo.ipsum@mi.ca;mauris.Integer.sem@accumsanneque.org;felis.ullamcorper@ametorciUt.net;bibendum.sed.est@Sedcongueelit.ca;magna.Suspendisse@vehicula.ca;tincidunt.aliquam@loremtristique.org;urna.Nullam@velnisl.com;mauris.Suspendisse.aliquet@mus.org;luctus.vulputate.nisi@magnaatortor.org;montes.nascetur@quisaccumsanconvallis.org;nisi@eget.org;convallis.convallis.dolor@posuereat.net;quis.arcu.vel@urna.com;ornare.In@parturientmontesnascetur.net;Cras@Duisvolutpatnunc.edu;Aliquam@loremegetmollis.net;Aenean@liberoatauctor.co.uk;amet.consectetuer@SuspendisseduiFusce.com;Vivamus.nibh.dolor@elementumloremut.com;faucibus@enimCurabitur.co.uk;rutrum.magna@acturpis.co.uk;ipsum.leo@at.edu;odio@dolor.net;pede@purusaccumsaninterdum.com;montes.nascetur.ridiculus@gravida.ca;a.dui@ametrisusDonec.edu;dui.Fusce.aliquam@Aliquam.ca;id.ante.Nunc@eueleifendnec.net;egestas.rhoncus.Proin@gravida.com;semper@fermentumconvallis.edu;ac.metus.vitae@lacusUtnec.ca;mauris@etmalesuadafames.ca;nunc.In.at@ut.co.uk;odio.Etiam@Cumsociis.co.uk;Nunc.sed@elit.edu;Aenean.sed@laoreet.org;magna@ante.net;turpis.Aliquam.adipiscing@massa.com;urna.justo.faucibus@pharetra.com;est@mus.co.uk;malesuada.vel.convallis@Phasellusataugue.org</value>
+  </data>
+  <data name="Passwords" xml:space="preserve">
+    <value>JML00JKP1ZP;JCH12POJ3GS;WJQ11GGN0PZ;MQZ80OZA1IC;MOK01TLJ4IS;BNX37LIJ4UA;KPB95BDX1QL;OSO31YTM6VZ;ODT94CKG1UW;ETK29IKN7ZG;IHK20WXW8MZ;PML68SUQ5YK;YFI26WBP0KX;MQY35VFB8UN;HMJ92ANG4ML;TUB58RRF5DW;NML36MEM9MZ;ILH39OTM9MG;BCB77HHW1VJ;PEB03OAV5JH;VSH34TJZ9LB;BEV34SMG0BL;DCV61QGN9CG;FMT98SYH7ZL;PIW37DJW5NZ;KFC04QAN8FA;PEW31DCC5SK;LAF63BFX0QC;DRN76BQX0FB;YOE06HQJ6CK;XSU99RAN7EF;HYW35TLU8JJ;AKA20JZD7WV;OWT28GZB4GZ;IQO10JYK7YV;TFW11AXB8LX;QRU86VJX8RN;KUO77ZNR7GW;RKB72CPT0FK;UCB64YMD4XX;ASQ92HUM1LW;GEE37YJY3EA;JVM33PTF5UX;DTD45PQZ4WE;RFX55VYT8HO;IQX93CLE0PX;DAM76MFO6XU;NMJ34DFS6NJ;PLS68XRL8VM;HOE77SJR5XE;WGP94IRZ6HK;KYH26TCL2JA;JDU14LPJ6MP;FMB51AGL4QJ;TYA40MSK4CN;GEA77JJG9PS;BDW03HNA6HY;STZ14JRO8YT;XRN20UHP5IT;JKD69DJF0BZ;BGL49ZIW7GO;GNO07EOC9XN;BPL29RHA6JG;CVE01BVJ5CX;EDS36UGP3IE;TND48DBE3DZ;OGD60NFD4JG;CSY99NFG6ZU;VKP94UHP7WV;XMW47AVB2YU;FWT70ZLB7GL;JEW14MXI2UV;EFN10PMY3SV;CLW18YXC3GG;GKT72CAC9EH;LJH08GKO0NZ;YQV85YGU2ME;YFM02OYK8JU;CKQ38FKJ1JZ;AGN94HEZ4DE;XEK40VHM5JX;GSS41BQN0RT;OQF88EIY3FC;TRF59REI5KB;HWF34SKE4ZU;RVP81OFJ6YB;VNA56ICC4JZ;QSM31QTC4LY;AGC54LFL5AY;NOR86UHZ7XS;FFV89YGK8HR;ZVD40PYB5MQ;FIG96GSN9YT;UUS70DQI8PE;ZBF59GCM8HV;DGL39YIX6DS;KWU54DJC2ID;MWD79QQG4UM;WEM84KOQ1YM;XNZ08BHF2UC</value>
+  </data>
+  <data name="ProductNames" xml:space="preserve">
+    <value>$5 Virtual Gift Card;$25 Virtual Gift Card;$50 Physical Gift Card;$100 Physical Gift Card;50's Rockabilly Polka Dot Top JR Plus Size;Acer Aspire One 8.9" Mini-Notebook Case - (Black);adidas Women's Supernova CSH 7 Running Shoe;Adobe Photoshop Elements 7;APC Back-UPS RS 800VA - UPS - 800 VA - UPS battery - lead acid ( BR800BLK );Arrow Men's Wrinkle Free Pinpoint Solid Long Sleeve;ASUS Eee PC 1000HA 10-Inch Netbook;ASUS Eee PC 900HA 8.9-Inch Netbook Black;Best Grilling Recipes;Black &amp; White Diamond Heart;BlackBerry Bold 9000 Phone, Black (AT&amp;T);Build your own computer;Canon Digital Rebel XSi 12.2 MP Digital SLR Camera;Canon VIXIA HF100 Camcorder;Compaq Presario SR1519X Pentium 4 Desktop PC with CDRW;Cooking for Two</value>
+  </data>
+  <data name="Usernames" xml:space="preserve">
+    <value>ByronRay;FrancisBowen;IvanRodriguez;LindaGamble;DanielleBarnett;SageBoyer;AmeliaVelazquez;LysandraCarver;MaconWelch;BorisGarcia;CamillaMeadows;KevinPeters;PatienceRodgers;CarsonBurris;QuynnGarcia;AlfredaValdez;AuroraGray;AaronLe;CairoMckinney;ShayHanson;MarikoNorton;JenetteOneal;LionelBoyd;SebastianDavenport;AmethystWeaver;KieranCortez;KylynnBradford;UrielFranco;StuartBoyd;ImeldaMoses;HunterHumphrey;KylynnKennedy;RubyMarshall;AladdinWhitfield;CarsonSteele;GeorgeSalas;KiayadaSchmidt;JordanCarson;TravisGay;HaleeWest;EchoVaughan;CarlySimpson;AhmedBowen;CameronTalley;CelesteMcclain;KenyonMcdowell;AmandaBrock;AzaliaSosa;MerrillBrooks;SachaSharpe;YardleyChurch;MarisLarsen;ZeusCamacho;MichaelTurner;JasperBartlett;StaceyRatliff;XanthusBall;LillianWolf;BrendanRaymond;StephenFlowers;GailHerrera;TallulahHamilton;KaseemWilkins;DanteColeman;AugustBenton;AldenBeach;DanielNewton;LareinaDeleon;RhonaDonovan;CailinEnglish;ElliottAlston;AlanaDurham;AmeliaMeyer;DariaChaney;HallaBullock;JamaliaPearson;KeelieGoff;BasilBates;FerdinandGates;DamonHartman;HedwigDunlap;IvorMontgomery;UriahAtkinson;SophiaPetty;DominiqueAllen;ZeniaMarquez;AleaAlvarez;RyderBerry;MarahBenton;DakotaAlvarado;ChandlerOrtiz;OliviaPatterson;AlmaSargent;PorterGould;CallumWynn;PetraLowe;DeannaCooke;ChancellorChurch;CoraBarton;TashyaKelly</value>
+  </data>
+</root>

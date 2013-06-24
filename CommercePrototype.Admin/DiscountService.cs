@@ -10,25 +10,9 @@ namespace CommercePrototype.Admin
 {
     public class DiscountService
     {
-        public void SaveStoreDiscount(StoreDiscount storeDiscount)
+        public void SaveStoreDiscount(Discount discount)
         {
-            DataManager.CurrentSession.Store(storeDiscount);
+            DataManager.CurrentSession.Store(discount);
         }
-
-        public static StoreDiscount StoreDiscount
-        {
-            get
-            {
-                var result = DataManager.CurrentSession.Query<StoreDiscount>().SingleOrDefault();
-                if (result == null)
-                {
-
-                    result = new StoreDiscount();
-                    DataManager.CurrentSession.Store(result);
-                }
-                return result;
-            }
-        }
-
     }
 }

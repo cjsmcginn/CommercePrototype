@@ -44,19 +44,25 @@
                     <img src="images/htmleditor.png" alt="Full Description">
                 </div>
             </div>
+			<div class="control-group">
+                <label class="control-label">Default Price</label>
+
+                <div class="controls">
+                    <input type="text" placeholder="Enter Price">
+                </div>
+            </div>
             <legend>Options</legend>
             <div class="control-group">
                 <div class="control-label">&nbsp;</div>
                 <div class="controls">
                     <label class="checkbox inline">
                         <input type="checkbox" id="published" value="option1"> Published
-                    </label>
-                    <label class="checkbox inline">
-                        <input type="checkbox" id="inlineCheckbox2" value="option2"> Show on
-                        Homepage
-                    </label>
+                    </label>     
+				<label class="checkbox inline">
+                        <input type="checkbox" id="shipping-required" value="option1"> Shipping Required
+                    </label>  					
                 </div>
-            </div>
+            </div>			 
             <br/>
             <legend>Categories</legend>
             <div class="controls">
@@ -91,30 +97,10 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Default Price</td>
-                                <td>Product</td>
-                                <td>$10.00</td>
-                                <td>
-                                    <a href="user.html"><i class="icon-pencil"></i></a>
-                                    <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>2</td>
                                 <td>Recurring Billing</td>
                                 <td>Product</td>
                                 <td>None</td>
-                                <td>
-                                    <a href="user.html"><i class="icon-pencil"></i></a>
-                                    <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Published</td>
-                                <td>Product</td>
-                                <td>True</td>
                                 <td>
                                     <a href="user.html"><i class="icon-pencil"></i></a>
                                     <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
@@ -145,16 +131,6 @@
                                 <td>Grip Manufacturer</td>
                                 <td>Product</td>
                                 <td>Ping</td>
-                                <td>
-                                    <a href="user.html"><i class="icon-pencil"></i></a>
-                                    <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Requires Shipping</td>
-                                <td>Product</td>
-                                <td>True</td>
                                 <td>
                                     <a href="user.html"><i class="icon-pencil"></i></a>
                                     <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
@@ -316,7 +292,7 @@
                                         <p>
                                                 <span class="label label-important"><i class="icon-remove"
                                                                                        style="margin-right:3px;"></i>Remove</span>
-                                            <span class="label label-success">VIP Only</span>
+
                                         </p>
                                         <img src="http://placehold.it/80x80" alt=""
                                              style="margin-right:5px;"><img
@@ -444,6 +420,12 @@
                     <button class="btn btn-primary">Upload</button>
                     <button class="btn">Remove</button>
                 </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Price</label>
+            <div class="controls">
+                <input type="text" placeholder="Enter Price">
             </div>
         </div>
         <div>

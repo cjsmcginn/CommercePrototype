@@ -5,16 +5,28 @@ using CommercePrototype.Store;
 using FluentValidation;
 using CommercePrototype.Admin;
 using CommercePrototype.Core;
+using Raven.Client;
+
 namespace CommercePrototype.Tests
 {
     [TestClass]
     public class ProductServiceTests
     {
+        private static IDocumentStore _Store;
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
+        {
+            var testDb = new TestDB();
+            testDb.CreateDatabase();
+            _Store = testDb.Store;
+            testDb.InsertProducts();
+            DataManager.CurrentSession = _Store.OpenSession();
+        }
 
         [TestInitialize]
         public void TestInitialize()
         {
-            DataManager.RefreshSession();
+           
         }
         [TestMethod]
         public void SaveProductTest()

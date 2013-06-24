@@ -33,4 +33,6 @@ namespace CommercePrototype.Store
         AffiliateShippingAdjustment
 
     }
+    
+
 }

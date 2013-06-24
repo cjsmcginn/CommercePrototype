@@ -26,7 +26,7 @@ namespace CommercePrototype.Core
             var _documentStore =  new DocumentStore{ Url = "http://localhost:8892", DefaultDatabase = "Commerce" };
             _documentStore.RegisterListener(new ValidationStoreListener());
             //temporary to facillitate testing
-        
+        //use raven stores
             _documentStore.Initialize();
           
             _documentSession = _documentStore.OpenSession();
@@ -37,9 +37,13 @@ namespace CommercePrototype.Core
             get {
                 if(_documentSession==null)
                     Initialize();
-                return DataManager._documentSession; 
+                return DataManager._documentSession;
             }
-           
+            set
+            {
+                _documentSession = value;
+            }
+
         }
         //allows a single place to handle exceptions before forwarding to caller
         public static void SaveChanges()

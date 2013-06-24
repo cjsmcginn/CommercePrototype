@@ -13,10 +13,13 @@ namespace CommercePrototype.Tests
     public class ShoppingCartServiceTests
     {
 
-        [TestInitialize]
-        public void TestInitialize()
+        [ClassInitialize]
+        public static void Initialize(TestContext context)
         {
-            DataManager.RefreshSession();
+            var testDb = new TestDB();
+            testDb.CreateDatabase();
+            DataManager.CurrentSession = testDb.Store.OpenSession();
+
         }
 
         #region Utility Methods

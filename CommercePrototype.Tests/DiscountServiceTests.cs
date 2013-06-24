@@ -15,14 +15,6 @@ namespace CommercePrototype.Tests
         {
             DataManager.RefreshSession();
         }
-        [TestMethod]
-        public void SaveDiscountTest()
-        {
-            var discount = TestHelper.GetTestDiscount();
-            DiscountService.StoreDiscount.Discounts.Add(discount);
-            DataManager.SaveChanges();
-            Assert.IsTrue(DiscountService.StoreDiscount.Discounts.Where(x => x.Name == discount.Name).Count() == 1, "Discount not added");
-
-        }
+       
     }
 }

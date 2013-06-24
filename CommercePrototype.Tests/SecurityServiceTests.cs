@@ -9,9 +9,14 @@ namespace CommercePrototype.Tests
     [TestClass]
     public class SecurityServiceTests
     {
-        public SecurityServiceTests()
+       
+        [ClassInitialize]
+        public static void Initialize(TestContext context)
         {
-            DataManager.CurrentSession.Advanced.DocumentStore.Conventions.DefaultQueryingConsistency = Raven.Client.Document.ConsistencyOptions.QueryYourWrites;
+            var testDb = new TestDB();
+            testDb.CreateDatabase();
+            DataManager.CurrentSession = testDb.Store.OpenSession();
+
         }
         #region Utility Methods
         public Account CreateAccount()

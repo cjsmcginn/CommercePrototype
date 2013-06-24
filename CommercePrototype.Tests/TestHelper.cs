@@ -87,9 +87,9 @@ namespace CommercePrototype.Tests
             };
             return target;
         }
-        public static StoreDiscount.Discount GetTestDiscount()
+        public static Discount GetTestDiscount()
         {
-            var result = new StoreDiscount.Discount
+            var result = new Discount
             {
                 Active = true,
                 Amount = 20m,
